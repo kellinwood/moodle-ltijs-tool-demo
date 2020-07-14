@@ -1,0 +1,56 @@
+version: '3.5'
+services:
+  chrome:
+    container_name: chrome
+    image: selenium/standalone-chrome-debug:3.141.59-20200525
+    ports:
+      - "5900:5900"
+    volumes:  
+      - /tmp/selenium-shm:/dev/shm
+    environment:  
+      - SCREEN_WIDTH=1920
+      - SCREEN_HEIGHT=1480
+      - DBUS_SESSION_BUS_ADDRESS=/dev/null
+  lti-tool1:
+    container_name: lti-tool1
+    build: 'lti-tool1'
+    environment:
+      - DB_HOST=mongodb
+      - DB_DATABASE=ltimoodle
+      - LTI_KEY=LTIKEY
+      - MOODLE_URL=http://moodle
+#    ports:
+#      - '3000:3000'
+  mongodb:
+    container_name: mongodb
+    image: mongo
+#    ports:
+#      - "27017:27017"
+    volumes:
+      - './mongodb_data:/data/db'
+  mariadb:
+    container_name: mariadb
+    image: 'docker.io/bitnami/mariadb:10.3-debian-10'
+#    ports:
+#      - "3306:3306"
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+      - MARIADB_USER=bn_moodle
+      - MARIADB_DATABASE=bitnami_moodle
+    volumes:
+      - './mariadb_data:/bitnami/mariadb'
+  moodle:
+    container_name: moodle
+    image: 'docker.io/bitnami/moodle:3-debian-10'
+#    ports:
+#      - "8080:80"
+#      - "8443:443"
+    environment:
+      - MOODLE_DATABASE_HOST=mariadb
+      - MOODLE_DATABASE_PORT_NUMBER=3306
+      - MOODLE_DATABASE_USER=bn_moodle
+      - MOODLE_DATABASE_NAME=bitnami_moodle
+      - ALLOW_EMPTY_PASSWORD=yes
+    volumes:
+      - './moodle_data:/bitnami/moodle'
+      - './moodledata_data:/bitnami/moodledata'
