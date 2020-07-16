@@ -12,7 +12,7 @@ const lti = new Lti(process.env.LTI_KEY,
     connection: { user: process.env.DB_USER, pass: process.env.DB_PASS } })
 
 // Main route
-lti.app.get('/main', async (req, res) => {
+lti.app.get('/index', async (req, res) => {
   return res.sendFile(path.join(__dirname, '/public/index.html'))
 })
 
@@ -37,13 +37,13 @@ async function setup () {
   // Deploying provider, connecting to the database and starting express server.
   await lti.deploy()
 
-  const clientId = 'oizoyHSkYHvnzav';
+  const clientId = 'NrBDjox0kt4wJ99';
 
   console.log('Registring LTI platform with clientId: ' + clientId);
 
   const plat = await lti.registerPlatform({
     url: process.env.MOODLE_URL,
-    name: 'Local Moodle',
+    name: 'Tool 1',
     clientId: clientId,
     authenticationEndpoint: process.env.MOODLE_URL + '/mod/lti/auth.php',
     accesstokenEndpoint: process.env.MOODLE_URL + '/mod/lti/token.php',
@@ -54,7 +54,7 @@ async function setup () {
   console.log(await plat.platformPublicKey())
 
   lti.onConnect((connection, request, response) => {
-    lti.redirect(response, '/main', { ignoreRoot: true, isNewResource: true })
+    lti.redirect(response, '/index', { ignoreRoot: true, isNewResource: true })
   }, { secure: false })
 
   console.log('Deployed!')

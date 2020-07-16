@@ -3,105 +3,13 @@
    <head>
      <title>Class Summary</title>
      <style type="text/css">
-.ClassSummary {
-  margin: 2em;
-  max-width: 1200px;
-  min-width: 1200px;
-}
 
-.CSHeader {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  padding-bottom: 1em;
-  border-bottom: 1px solid lightgray
-}
-
-.CSHeaderItem {
-  margin-left: 3em;
-}
-
-.CSColumns {
-  display: flex;
-  padding-top: 1em;
-  justify-content: space-between;
-}
-
-.CSColumn {
-  width: 32.5%;
-  border: 1px solid lightgray;
-}
-
-.CSColumnTitle {
-  font-weight: 700;
-  text-align: center;
-  padding: 1em 0 1em 0;
-}
-
-.donutchart-innertext {
-  display: none;
-}
-
-.SFOHeader {
-  background-color: rgb(239, 239, 252);
-}
-
-.StudentTable {
-  padding: .5em;
-}
-
-.StudentRow {
-  padding-bottom: .5em;
-  display: flex;
-}
-
-.StudentName {
-  flex-grow: 1;
-  color: blue;
-}
-.StudentMenu {
-  font-weight: 700;
-}
-
-.ViewAllStudentsButton {
-  color: white;
-  background-color: blue;
-  font-weight: 700;
-  text-align: center;
-  padding: 5px;
-  cursor: pointer;
 }</style>     
    </head>
 <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"><div class="ClassSummary"><div class="CSHeader"><div class="CSHeaderItem"><span>Subject: </span><select name="subjects" id="subjects"><option value="read">Reading</option><option value="math">Math</option></select></div><div class="CSHeaderItem"><span>Time Frame: </span><select name="subjects" id="subjects"><option value="24">Today</option><option value="168">Last 7 Days</option></select></div><div class="CSHeaderItem">12</div></div><div class="CSColumns"><div class="CSColumn"><div style="background-color: rgb(239, 239, 252);"><div style="font-weight: 700; text-align: center; padding: 1em 0px;">Students to Focus On</div><svg class="donutchart" width="320" height="210" viewBox="0 0 320 210"><g class="donutchart-arcs"><path class="selected donutchart-arcs-path" d="M152.53333333333333,106.66666666666666
-    A45.86666666666667, 45.86666666666667 0 0 1 106.66666666666666, 152.53333333333333
-    L106.66666666666666,127.99999999999999
-    A21.333333333333332, 21.333333333333332 0 0 0 127.99999999999999, 106.66666666666666 z" stroke="#212121" fill="#999999" opacity="0.5"></path><path class="donutchart-arcs-path" d="M106.66666666666666,149.33333333333331
-    A42.666666666666664, 42.666666666666664 0 0 1 63.99999999999999, 106.66666666666666
-    L85.33333333333333,106.66666666666666
-    A21.333333333333332, 21.333333333333332 0 0 0 106.66666666666666, 127.99999999999999 z" stroke="#212121" fill="#333333" opacity="1"></path><path class="donutchart-arcs-path" d="M63.99999999999999,106.66666666666666
-    A42.666666666666664, 42.666666666666664 0 0 1 106.66666666666664, 63.99999999999999
-    L106.66666666666666,85.33333333333333
-    A21.333333333333332, 21.333333333333332 0 0 0 85.33333333333333, 106.66666666666666 z" stroke="#212121" fill="#34a8eb" opacity="1"></path><path class="donutchart-arcs-path" d="M106.66666666666664,63.99999999999999
-    A42.666666666666664, 42.666666666666664 0 0 1 149.33333333333331, 106.66666666666664
-    L127.99999999999999,106.66666666666666
-    A21.333333333333332, 21.333333333333332 0 0 0 106.66666666666666, 85.33333333333333 z" stroke="#212121" fill="#673ab7" opacity="1"></path></g><g class="donutchart-innertext"><text class="donutchart-innertext-label" x="106.66666666666666" y="45%" text-anchor="middle">Passing Lessons</text><text class="donutchart-innertext-value" x="106.66666666666666" y="60%" text-anchor="middle">25.00%</text></g><g class="donutchart-legend"><g transform="translate(213.33333333333331,
-0)" class="selected donutchart-legend-item"><rect class="selected donutchart-legend-item-rect" width="10.666666666666668" height="10.666666666666668" fill="#999999" opacity="0.5" stroke="#212121"></rect><text class="selected donutchart-legend-item-label" x="16" y="5.333333333333334" dy=".35em">Passing Lessons - 25</text></g><g transform="translate(213.33333333333331,
-16)" class="donutchart-legend-item"><rect class="donutchart-legend-item-rect" width="10.666666666666668" height="10.666666666666668" fill="#333333" opacity="1" stroke="#212121"></rect><text class="donutchart-legend-item-label" x="16" y="5.333333333333334" dy=".35em">Failing 1 Lesson - 25</text></g><g transform="translate(213.33333333333331,
-32)" class="donutchart-legend-item"><rect class="donutchart-legend-item-rect" width="10.666666666666668" height="10.666666666666668" fill="#34a8eb" opacity="1" stroke="#212121"></rect><text class="donutchart-legend-item-label" x="16" y="5.333333333333334" dy=".35em">Failing 2+ Lessons - 25</text></g><g transform="translate(213.33333333333331,
-48.00000000000001)" class="donutchart-legend-item"><rect class="donutchart-legend-item-rect" width="10.666666666666668" height="10.666666666666668" fill="#673ab7" opacity="1" stroke="#212121"></rect><text class="donutchart-legend-item-label" x="16" y="5.333333333333334" dy=".35em">No Lessons Completed - 25</text></g></g></svg></div><div style="padding: 0.5em;"><div style="padding-bottom: 0.5em; display: flex;"><div style="flex-grow: 1; color: blue;">Kishan Falgado</div><div>⋮</div></div><div style="padding-bottom: 0.5em; display: flex;"><div style="flex-grow: 1; color: blue;">Iwan Folgers</div><div>⋮</div></div><div style="padding-bottom: 0.5em; display: flex;"><div style="flex-grow: 1; color: blue;">Ezekiel Felderson</div><div>⋮</div></div></div><div class="ViewAllStudentsButton">View All Students</div></div><div class="CSColumn"><div class="CSColumnTitle">Lessons to Focus On</div></div><div class="CSColumn"><div class="CSColumnTitle">Usage</div></div></div></div></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  <script src="/static/js/bundle.js"></script><script src="/static/js/0.chunk.js"></script><script src="/static/js/main.chunk.js"></script>
-
+  Successful LTI launch!
+  <p>
+  TODO: render the class summary here
+  </p>
 </body>   
 </html>
