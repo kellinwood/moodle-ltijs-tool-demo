@@ -16,11 +16,21 @@ services:
     build: 'lti-tool1'
     environment:
       - DB_HOST=mongodb
-      - DB_DATABASE=ltimoodle
-      - LTI_KEY=LTIKEY
+      - DB_DATABASE=lti-tool1
+      - LTI_KEY=LTI_TOOL_1
       - MOODLE_URL=http://moodle
 #    ports:
 #      - '3000:3000'
+  lti-tool2:
+    container_name: lti-tool2
+    build: 'lti-tool2'
+    environment:
+      - DB_HOST=mongodb
+      - DB_DATABASE=lti-tool2
+      - LTI_KEY=LTI_TOOL_2
+      - MOODLE_URL=http://moodle
+  #    ports:
+  #      - '3000:3000'
   mongodb:
     container_name: mongodb
     image: mongo
