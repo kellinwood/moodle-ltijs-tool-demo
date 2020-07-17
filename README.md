@@ -69,7 +69,6 @@ The chrome container is running the [Fluxbox window manager](http://fluxbox.org)
 
 * Click the settings/gear icon in the tool that was just created.
 * Copy the Client ID value  (the lti-tool code needs this ID)
-* Leave the settings screen open
 
 ## Update lti-tool1 with the Client ID
 
