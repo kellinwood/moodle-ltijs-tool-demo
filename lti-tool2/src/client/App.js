@@ -1,8 +1,5 @@
 import React from 'react'
 import Home from './pages/home'
-import Grades from './pages/grades'
-import NamesAndRoles from './pages/namesandroles'
-import DeepLink from './pages/deeplink'
 import {
   BrowserRouter as Router,
   Switch,
@@ -15,15 +12,6 @@ export default function App () {
       <Switch>
         <Route exact path='/'>
           <Home />
-        </Route>
-        <Route path='/grades'>
-          <Grades />
-        </Route>
-        <Route path='/namesandroles'>
-          <NamesAndRoles />
-        </Route>
-        <Route path='/deeplink'>
-          <DeepLink />
         </Route>
       </Switch>
     </Router>

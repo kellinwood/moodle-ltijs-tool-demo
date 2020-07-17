@@ -16,6 +16,7 @@ Five docker containers will be used.
 
 I ran into troulbe getting the redirects between moodle and the lti-tool working with the browser running on the host, which is why the demo uses chrome running on the same docker network as moodle and the tool.
 
+
 ## Startup phase 1
 
 ```
@@ -107,6 +108,21 @@ This will re-build the lti-tool and start its container.
 ## Launch the tool
 
 * Click on 'Tool 1'
+
+## Shutdown
+
+Shutdown and remove the docker containers. 
+
+```
+./shutdown.sh
+```
+
+Note that because the data directories of moodle, mariadb, and mongodb are mounted from local directories, the moodle and LTI configurations are persistent.  If you want to start over from scratch, then run the cleanup.sh script too.
+
+## lti-tool2
+
+I added lti-tool2 which is based on [Ltijs-simple-react-full-stack](https://github.com/Cvmcosta/Ltijs-simple-react-full-stack).  This tool is an LTI-launchable react app that displays the token and context information passed by moodle.
+
 
 
 

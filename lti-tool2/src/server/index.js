@@ -99,20 +99,14 @@ lti.app.get('/resources', async (req, res) => {
   return res.send(resources)
 })
 
-// Get user and context information route
+// Get token and context information route
 lti.app.get('/info', async (req, res) => {
-  console.log('TOKEN: ' + res.locals.token)
   const token = res.locals.token
   const context = res.locals.context
 
   const info = { }
-  if (token.userInfo) {
-    if (token.userInfo.name) info.name = token.userInfo.name
-    if (token.userInfo.email) info.email = token.userInfo.email
-  }
-
-  if (token.roles) info.roles = token.roles
-  if (context.context) info.context = context.context
+  if (token) info.token = token;
+  if (context) info.context = context;
 
   return res.send(info)
 })
@@ -130,7 +124,7 @@ const setup = async () => {
 
   const plat = await lti.registerPlatform({
     url: process.env.MOODLE_URL,
-    name: 'Tool 2',
+    name: 'Tool 3',
     clientId: clientId,
     authenticationEndpoint: process.env.MOODLE_URL + '/mod/lti/auth.php',
     accesstokenEndpoint: process.env.MOODLE_URL + '/mod/lti/token.php',
