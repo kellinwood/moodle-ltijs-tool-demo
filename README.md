@@ -121,7 +121,7 @@ Note that because the data directories of moodle, mariadb, and mongodb are mount
 
 ## lti-tool2
 
-I added lti-tool2 which is based on [Ltijs-simple-react-full-stack](https://github.com/Cvmcosta/Ltijs-simple-react-full-stack).  This tool is an LTI-launchable react app that displays the token and context information passed by moodle.
+You can also configure moodle to launch lti-tool2 which is based on [Ltijs-simple-react-full-stack](https://github.com/Cvmcosta/Ltijs-simple-react-full-stack).  This tool is an LTI-launchable react app that displays the token and context information passed by moodle.
 
 
 

@@ -29,7 +29,7 @@ services:
       - DB_HOST=mongodb
       - DB_DATABASE=lti-tool2
       - LTI_KEY=LTI_TOOL_2
-      - LTI_CLIENT_ID=Yh2LmtX21kfXF9x
+      - LTI_CLIENT_ID=changeme_moodle_client_id
       - MOODLE_URL=http://moodle
 #    ports:
 #      - '3000:3000'
