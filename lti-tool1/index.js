@@ -37,8 +37,7 @@ async function setup () {
   // Deploying provider, connecting to the database and starting express server.
   await lti.deploy()
 
-  const clientId = 'NrBDjox0kt4wJ99';
-
+  const clientId = process.env.LTI_CLIENT_ID
   console.log('Registring LTI platform with clientId: ' + clientId);
 
   const plat = await lti.registerPlatform({

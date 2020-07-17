@@ -101,6 +101,7 @@ lti.app.get('/resources', async (req, res) => {
 
 // Get user and context information route
 lti.app.get('/info', async (req, res) => {
+  console.log('TOKEN: ' + res.locals.token)
   const token = res.locals.token
   const context = res.locals.context
 
@@ -124,9 +125,8 @@ const setup = async () => {
   // Deploying provider, connecting to the database and starting express server.
   await lti.deploy()
 
-  const clientId = 'ccgMlSWsvbW5SwE';
-
-  console.log('Registring LTI platform with clientId: ' + clientId);
+  const clientId = process.env.LTI_CLIENT_ID
+  console.log('Registring LTI platform with clientId: ' + clientId)
 
   const plat = await lti.registerPlatform({
     url: process.env.MOODLE_URL,

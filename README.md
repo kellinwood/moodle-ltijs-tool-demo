@@ -47,7 +47,7 @@ The chrome container is running the [Fluxbox window manager](http://fluxbox.org)
 
 * Visit http://moodle.com to connect to the moodle
 * Click the login link in the upper right
-* Login with username: User, and password: bitnami
+* Login with username: 'user', and password: 'bitnami'
 
 ## Configure lti-tool1 as an external tool
 
@@ -55,11 +55,11 @@ The chrome container is running the [Fluxbox window manager](http://fluxbox.org)
 * Click on the 'Plugins' tab
 * Under 'Activity Modules', click on 'Manage Tools'
 * Click 'Configure a tool manually'
-* Enter 'Class Summary' for the tool name
+* Enter 'Tool 1' for the tool name
 * Enter 'http://lti-tool1:3000' for the tool URL
 * Change the LTI version to 'LTI 1.3'
-* Change the 'Public Key Type' to 'RSA key'
-* Leave the 'Public Key' field blank for now
+* Set the 'Public Key Type' to 'Keyset URL', if its not set that way already
+* Enter 'http://lti-tool1:3000/keys' in the 'Public keyset' field
 * Enter 'http://lti-tool1:3000/login' in the 'Initiate Login URL' field
 * Enter 'http://lti-tool1:3000' in the 'Redirection URI(s)' field
 * Confirm or change 'Tool configuration usage' to 'Show as preconfigured tool...'
@@ -73,33 +73,24 @@ The chrome container is running the [Fluxbox window manager](http://fluxbox.org)
 
 ## Update lti-tool1 with the Client ID
 
-* Edit lti-tool1/index.js and find the line that looks like this:
+* Edit docker-compose.yml and change the environment viarable value for LTI_CLIENT_ID under lti-tool1.  Specifically change 'changeme_moodle_client_id' to the client ID copied from the Moodle external tool's setting page above.
 
 ```
-const clientId = 'oizoyHSkYHvnzav';
+services:
+  lti-tool1:
+    environment:
+      - LTI_CLIENT_ID=value-copied-from-moodle-above
 ```
 
-IMPORTANT: Change the clientId value shown above to the one that you copied from the moodle tool settings page.
 
 ## Rebuild and start the tool
 
 ```
-./startup_phase2.sh
+./startup_phase2.sh lti-tool1
 ```
 
 This will re-build the lti-tool and start its container.
 
-## Cofigure the tools' public key in moodle
-
-The tool outputs its public key to the logs
-
-```
-docker logs lti-tool1
-```
-
-* Copy the base64-encoded public key from the log output
-* Go back to the VNC window and in the settings for the moodle external tool created in the prior steps, paste the public key into the 'Public Key' field.
-* Click 'Save'
 
 
 ## Add the tool to the moodle site
@@ -108,15 +99,15 @@ docker logs lti-tool1
 * Click the gear icon on the right side of the page
 * Select 'Turn editing on'
 * Click 'Add an activity or resource'
-* Click 'Eternal Tool'
-* Enter 'Class Summary' for the Activity name
-* Select 'Class Summary' from the Preconfigured tool select list
+* Click 'External Tool'
+* Enter 'Tool 1' for the Activity name
+* Select 'Tool 1' from the Preconfigured tool select list
 * Click 'Save and return to course'
 * Click the gear icon gain and turn editing off
 
 ## Launch the tool
 
-* Click on 'Class Summary'
+* Click on 'Tool 1'
 
 
 
