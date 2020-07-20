@@ -12,9 +12,9 @@ Five docker containers will be used.
 2. mariadb - backing DB used by Moodle
 3. lti-tool1 - the LTI-launchable tool that relies on ltijs for LTI support
 4. mongodb - the backing store used by ltijs
-5. chrome - a VNC-enabled container with chrome courtesy of the selenium project
+5. chrome - a VNC-enabled container with the Chrome browser, courtesy of the Selenium project
 
-I ran into troulbe getting the redirects between moodle and the lti-tool working with the browser running on the host, which is why the demo uses chrome running on the same docker network as moodle and the tool.
+I ran into troulbe getting the redirects between moodle and the lti-tool working with the browser running on the host, which is why the demo uses Chrome running on the same docker network as moodle and the tool.
 
 
 ## Startup phase 1
